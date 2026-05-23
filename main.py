@@ -163,9 +163,6 @@ class SimpleShooter(ShowBase):
             'pos': Point3(x, 1, z)
         })
     
-    def set_key(self, key, value):
-        self.keys[key] = value
-    
     def player_movement_task(self, task):
         """Handle player movement"""
         dt = globalClock.getDt()
@@ -244,7 +241,7 @@ class SimpleShooter(ShowBase):
         """Spawn new targets periodically"""
         if len(self.targets) < 3:
             self.spawn_target()
-        return task.again(2)
+        return Task.again
     
     def update_task(self, task):
         """Update UI and game state"""
